@@ -12,6 +12,7 @@ import pl.kwidzinski.library.service.BookService;
 import pl.kwidzinski.library.service.PublishingHouseService;
 
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -52,12 +53,23 @@ public class BookController {
 
     @GetMapping("/edit/{id}")
     public String getForm(Model model,
-                          @PathVariable (name = "id") Long id) {
+                          @PathVariable(name = "id") Long id) {
         final Optional<Book> optionalBook = bookService.getById(id);
-        if (optionalBook.isPresent()){
+        if (optionalBook.isPresent()) {
             model.addAttribute("publishingHouses", publishingHouseService.findAll());
-            model.addAttribute("book",optionalBook.get());
+            model.addAttribute("book", optionalBook.get());
             return "book-form";
+        }
+        return "redirect:/book/list";
+    }
+
+    @GetMapping("/remove/{id}")
+    public String remove(HttpServletRequest request,
+                         @PathVariable(name = "id") Long id) {
+        String referer = request.getHeader("referer");
+        bookService.remove(id);
+        if (referer != null) {
+            return "redirect:" + referer;
         }
         return "redirect:/book/list";
     }

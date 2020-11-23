@@ -35,4 +35,8 @@ public class BookService {
     public  Optional<Book> getById(final Long id) {
         return bookRepository.findById(id);
     }
+
+    public void remove(final Long id) {
+       bookRepository.deleteById(id);
+    }
 }
