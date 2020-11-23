@@ -1,16 +1,16 @@
 package pl.kwidzinski.library.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 
 @Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Book {
 
     @Id
@@ -21,7 +21,7 @@ public class Book {
 
     private int yearWritten;
 
-    @Formula(value = "(year(now() - year_written)")
+    @Formula(value = "(year(now()) - year_written)")
     private int howOld;
 
     private int numberOfPages;
@@ -30,7 +30,7 @@ public class Book {
     @ManyToOne(fetch = FetchType.LAZY)
     private PublishingHouse publishingHouse;
 
-    public Book(final String title, final int yearWritten, final int numberOfPages, final int numberOfAvailableCopies) {
+    public Book(String title, int yearWritten, int numberOfPages, int numberOfAvailableCopies) {
         this.title = title;
         this.yearWritten = yearWritten;
         this.numberOfPages = numberOfPages;

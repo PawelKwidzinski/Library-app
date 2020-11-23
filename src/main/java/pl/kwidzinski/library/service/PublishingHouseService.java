@@ -1,5 +1,6 @@
 package pl.kwidzinski.library.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.kwidzinski.library.model.PublishingHouse;
@@ -9,15 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class PublishingHouseService {
 
-    private PublishingHouseRepository publishingHouseRepository;
-
-    @Autowired
-    public PublishingHouseService(final PublishingHouseRepository publishingHouseRepository) {
-        this.publishingHouseRepository = publishingHouseRepository;
-    }
-
+    private final PublishingHouseRepository publishingHouseRepository;
 
     public List<PublishingHouse> findAll() {
         return publishingHouseRepository.findAll();
