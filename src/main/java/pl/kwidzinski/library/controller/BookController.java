@@ -74,4 +74,17 @@ public class BookController {
         return "redirect:/book/list";
     }
 
+    @GetMapping("/details/{id}")
+    public String details(Model model,
+                          HttpServletRequest request,
+                          @PathVariable (name = "id") Long id) {
+        final Optional<Book> optionalBook = bookService.getById(id);
+        if (optionalBook.isPresent()){
+            model.addAttribute("book", optionalBook.get());
+            model.addAttribute("referer", request.getHeader("referer")); // do przycisku back
+            return "book-details";
+        }
+        return "redirect:/book/list";
+    }
+
 }
