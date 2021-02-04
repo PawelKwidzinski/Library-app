@@ -5,7 +5,7 @@
 body {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    color: #5a5a5a;
+    background-image: url("images/books-1204029_1920.jpg");
 }
 
 
@@ -89,21 +89,51 @@ body {
     }
 }
 
-.main   {
-    margin-top: 10px;
+/*Navigator*/
+
+.navbar a{
+    font-size: 28px;
+}
+.collapse a {
+    font-size: 18px;
+}
+
+/*Main*/
+
+.main {
+    color: white;
+    margin: 20px auto;
+}
+
+.img-fluid {
+    width: auto;
+    height: auto;
 }
 
 .list-container {
-    margin-top: 10px;
-    /*border: solid 1px #5a5a5a;*/
+    margin: 30px auto 15px;
+    color: black;
+    border: solid 1px #5a5a5a;
+    border-radius: 5px;
+    background-color: lightslategrey;
+    opacity: 0.97;
+}
+
+.list-container h1 {
+    color: white;
 }
 
 .list-header-row {
-    font: bold 1.4rem Arial;
-    background-color: lightgrey;
+    border-radius: 5px;
+    font: bold 1.3rem Arial;
+    background-color: white;
     border: solid 1px #5a5a5a;
     margin: 1px;
     padding: 2px 0 2px 0;
+}
+
+.list-row {
+    border-radius: 5px;
 }
 
 .detail-list-header-row {
@@ -143,11 +173,20 @@ body {
 }
 
 .form-container {
-    margin-top: 10px;
+    border-radius: 5px;
+    margin: 30px auto;
+    background-color: lightslategrey;
+    opacity: 0.97;
+}
+
+.form-container h1 {
+    color: white;
 }
 
 .form-row-container {
+    border-radius: 5px;
     background-color: lightgrey;
+    color: black;
     position: center;
     border: solid 1px #5a5a5a;
     padding: 15px;
@@ -166,3 +205,28 @@ body {
 .justified{
     justify-content: center;
 }
+
+footer {
+    border-radius: 5px;
+    background: #343a40;
+    margin-top: 20px;
+    opacity: 0.97;
+}
+
+footer a{
+    border-radius: 5px;
+    border: 1px black solid;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: darkorange;
+}
+
+footer a:hover{
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    transition: 1s;
+}
+
+

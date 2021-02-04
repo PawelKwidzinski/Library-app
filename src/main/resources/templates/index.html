@@ -8,12 +8,18 @@
 <body>
 <header th:replace="fragments :: navigator"></header>
 
-<main role="main">
-    <h1>Siemano!</h1>
-
-    <footer th:replace="fragments :: footer"></footer>
+<main role="main" class="main">
+    <div class="container">
+        <div class="row col-md-12 list-container">
+            <div class="row col-md-12">
+                <h1>Welcome!</h1>
+            </div>
+        </div>
+        <footer th:replace="fragments :: footer"></footer>
+    </div>
 </main>
 
 <div th:replace="fragments :: footerscripts"></div>
+
 </body>
 </html>
