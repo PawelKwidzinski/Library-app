@@ -1,6 +1,6 @@
 # Library-app
 ## General
-API with UI in Thymeleaf. CRUD service with "Book" and "PublishingHouse" as a models of application. Used MVC software design pattern.
+API with UI in Thymeleaf. CRUD service with "Book" and "PublishingHouse" as models of application. Used MVC software design pattern.
 ## Technologies
 * Java 8
 * Maven
