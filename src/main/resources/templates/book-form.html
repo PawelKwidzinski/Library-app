@@ -19,59 +19,47 @@
                 <form th:action="@{/book/add}" method="post" th:object="${book}" class="col-md-12">
                     <input type="hidden" th:field="*{id}" th:value="*{id}">
                     <div class="row col-md-12 form-row-container">
-                    <!--lewa kolumna-->
                         <div class="col-md-6">
                             <label for="title">Title:</label>
                         </div>
-                    <!--prawa kolumna-->
                         <div class="col-md-6">
                             <input type="text" id="title" th:field="*{title}" th:value="*{title}" class="form-control col-md-12">
                         </div>
                     </div>
                     <div class="row col-md-12 form-row-container">
-                        <!--lewa kolumna-->
                         <div class="col-md-6">
                             <label for="yearWritten">Year written:</label>
                         </div>
-                        <!--prawa kolumna-->
                         <div class="col-md-6">
                             <input type="number" max="2021" id="yearWritten" th:field="*{yearWritten}" th:value="*{yearWritten}" class="form-control col-md-12">
                         </div>
                     </div>
                     <div class="row col-md-12 form-row-container">
-                        <!--lewa kolumna-->
                         <div class="col-md-6">
                             <label for="numberOfPages">Number of pages:</label>
                         </div>
-                        <!--prawa kolumna-->
                         <div class="col-md-6">
                             <input type="number" min="0" id="numberOfPages" th:field="*{numberOfPages}" th:value="*{numberOfPages}" class="form-control col-md-12">
                         </div>
                     </div>
                     <div class="row col-md-12 form-row-container">
-                        <!--lewa kolumna-->
                         <div class="col-md-6">
                             <label for="numberOfAvailableCopies">Number of available copies:</label>
                         </div>
-                        <!--prawa kolumna-->
                         <div class="col-md-6">
                             <input type="number" min="0" id="numberOfAvailableCopies" th:field="*{numberOfAvailableCopies}" th:value="*{numberOfAvailableCopies}" class="form-control col-md-12">
                         </div>
                     </div>
                     <div class="row col-md-12 form-row-container">
-                        <!--lewa kolumna-->
                         <div class="col-md-6">
                             <label for="publishingHouseId">Publishing House:</label>
                         </div>
-                        <!--prawa kolumna-->
                         <div class="col-md-6">
                             <select th:name="publishingHouseId" id="publishingHouseId" class="form-control col-md-12">
-                                <!--option - dostępne opcje wyboru-->
                                 <option th:each="ph : ${publishingHouses}"
                                         th:text="${ph.getName()}"
                                         th:value="${ph.getId()}"
                                         th:selected="${book.getPublishingHouse() != null && book.getPublishingHouse().getId() == ph.getId()}">
-                                    <!--th:selected - to co jest obecnie zanazaczone-->
                                 </option>
                             </select>
                         </div>
@@ -79,11 +67,9 @@
 
                     <div class="row col-md-12 form-row-buttons">
                         <div class="col-md-6">
-                        <!--Guzik reset-->
                             <button type="reset" class="btn btn-warning offset-3 col-md-6">Reset</button>
                         </div>
                         <div class="col-md-6">
-                        <!--Guzik submit-->
                             <button type="submit" class="btn btn-primary offset-3 col-md-6">Send</button>
                         </div>
                     </div>

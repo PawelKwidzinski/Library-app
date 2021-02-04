@@ -13,7 +13,6 @@ import java.util.Set;
 public class PublishingHouse {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     @GeneratedValue(generator = "inc")
     @GenericGenerator(name = "inc", strategy = "increment")
     private Long id;

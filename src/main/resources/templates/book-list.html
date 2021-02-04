@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head> <!--doda treść fragmentu do obecnego taga-->
+<head>
     <meta charset="UTF-8">
     <title>Index Page</title>
 
@@ -20,7 +20,7 @@
                 <div class="col-md-2">Title</div>
                 <div class="col-md-1">Year</div>
                 <div class="col-md-2">No Copies</div>
-                <div class="col-md-6 "></div> <!--guziki-->
+                <div class="col-md-6 "></div>
             </div>
             <div class="row col-md-12 list-row" th:each="book : ${books}">
                 <div class="col-md-1" th:text="${book.getId()}"></div>

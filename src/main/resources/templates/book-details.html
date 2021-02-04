@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head> <!--doda treść fragmentu do obecnego taga-->
+<head>
     <meta charset="UTF-8">
     <title>Index Page</title>
     <div th:replace="fragments :: headerlinks" th:remove="tag"></div>
@@ -14,91 +14,66 @@
             <div class="row col-md-12">
                 <h1>Book details</h1>
             </div>
-
             <div class="row col-md-12 detail-list-header-row" th:object="${book}">
                 <div class="row col-md-12 list-row">
-                    <!--lewa kolumna-->
-                        <div class="col-md-6">
-                            <label for="title">Id:</label>
-                        </div>
-                    <!--prawa kolumna-->
-                        <div class="col-md-6 value-cell" id="id" th:text="*{id}">
-
-                        </div>
+                    <div class="col-md-6">
+                        <label for="title">Id:</label>
+                    </div>
+                    <div class="col-md-6 value-cell" id="id" th:text="*{id}">
+                    </div>
                 </div>
-
                 <div class="row col-md-12 list-row">
-                        <!--lewa kolumna-->
                     <div class="col-md-6">
                         <label for="title">Title:</label>
                     </div>
-                        <!--prawa kolumna-->
                     <div class="col-md-6 value-cell" id="title" th:text="*{title}">
                     </div>
                 </div>
-
                 <div class="row col-md-12 list-row">
-                    <!--lewa kolumna-->
                     <div class="col-md-6">
                         <label for="year">Year written:</label>
                     </div>
-                    <!--prawa kolumna-->
                     <div class="col-md-6 value-cell" id="year" th:text="*{yearWritten}">
                     </div>
                 </div>
-
                 <div class="row col-md-12 list-row">
-                    <!--lewa kolumna-->
                     <div class="col-md-6">
                         <label for="old">Age:</label>
                     </div>
-                    <!--prawa kolumna-->
                     <div class="col-md-6 value-cell" id="old" th:text="*{howOld}">
                     </div>
                 </div>
-
                 <div class="row col-md-12 list-row">
-                        <!--lewa kolumna-->
                     <div class="col-md-6">
                         <label for="numberOfPages">Number of pages:</label>
                     </div>
-                        <!--prawa kolumna-->
                     <div class="col-md-6 value-cell" id="numberOfPages" th:text="*{numberOfPages}" >
                     </div>
                 </div>
                     <div class="row col-md-12 list-row">
-                        <!--lewa kolumna-->
                         <div class="col-md-6">
                             <label for="numberOfAvailableCopies">Number of available copies:</label>
                         </div>
-                        <!--prawa kolumna-->
                         <div class="col-md-6 value-cell" id="numberOfAvailableCopies" th:text="*{numberOfAvailableCopies}">
                         </div>
                     </div>
                     <div class="row col-md-12 list-row">
-                        <!--lewa kolumna-->
                         <div class="col-md-6">
                             <label for="publishingHouseId">Publishing House:</label>
                         </div>
-                        <!--prawa kolumna-->
                         <div class="col-md-6 value-cell" id="publishingHouseId" th:text="${book.getPublishingHouse().getName()}">
                         </div>
                     </div>
-
                     <div class="row col-md-12 form-row-buttons">
                         <div class="offset-6 col-md-6">
-                        <!--Guzik submit-->
                             <a th:href="@{${referer}}">
                             <button type="submit" class="btn btn-primary offset-3 col-md-6">Back</button>
                             </a>
                         </div>
                     </div>
-
             </div>
         </div>
     </div>
-
-
     <footer th:replace="fragments :: footer"></footer>
 </main>
 

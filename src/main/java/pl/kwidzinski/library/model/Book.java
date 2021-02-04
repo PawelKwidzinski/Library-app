@@ -14,7 +14,6 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     @GeneratedValue(generator = "inc")
     @GenericGenerator(name = "inc", strategy = "increment")
     private Long id;
