@@ -9,14 +9,14 @@ API with UI in Thymeleaf. CRUD service with "Book" and "PublishingHouse" as mode
 * Themeleaf
 * MySQL
 * Hibernate
-* HTML, CSS
+* HTML/CSS
 * Bootstrap
 ## Configuration
 MySql DB properties:
-* `spring.datasource.url=jdbc:mysql://localhost:3306/library?serverTimezone=Europe/Warsaw&createDatabaseIfNotExist=true`
+* `spring.datasource.url=`
 * `spring.datasource.username=`
 * `spring.datasource.password=`
-* `spring.jpa.hibernate.ddl-auto=validate`
+* `spring.jpa.hibernate.ddl-auto=`
 ## Screenshots
 ![alt text](https://github.com/PawelKwidzinski/library/blob/master/pr_scr/List_PH.jpg)
 ![alt text](https://github.com/PawelKwidzinski/library/blob/master/pr_scr/List_book.jpg)
