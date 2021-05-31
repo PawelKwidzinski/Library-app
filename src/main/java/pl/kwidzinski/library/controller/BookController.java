@@ -28,7 +28,6 @@ public class BookController {
     @GetMapping("/list")
     public String getList(Model model) {
         model.addAttribute("books", bookService.getAll());
-
         return "book-list";
     }
 
@@ -39,7 +38,6 @@ public class BookController {
 
         model.addAttribute("publishingHouses", publishingHouseService.findAll());
         model.addAttribute("book", book);
-
         return "book-form";
     }
 
@@ -47,7 +45,6 @@ public class BookController {
     // nazwa 'publishingHouseId' pochodzi z formularza book-form th:name="publishingHouseId
     public String addBook(Book book, Long publishingHouseId) {
         bookService.saveBook(book, publishingHouseId);
-
         return "redirect:/book/list";
     }
 

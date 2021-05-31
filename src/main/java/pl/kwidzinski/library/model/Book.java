@@ -3,9 +3,9 @@ package pl.kwidzinski.library.model;
 import lombok.*;
 import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -30,6 +30,11 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private PublishingHouse publishingHouse;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
+    private Set<Author> authors;
 
     public Book(String title, int yearWritten, int numberOfPages, int numberOfAvailableCopies) {
         this.title = title;
