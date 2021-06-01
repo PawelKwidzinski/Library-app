@@ -17,7 +17,7 @@
             </div>
             <div class="row col-md-12 list-header-row">
                 <div class="col-md-1">Id</div>
-                <div class="col-md-1">Name</div>
+                <div class="col-md-2">Name</div>
                 <div class="col-md-2">Surname</div>
                 <div class="col-md-2">Birth Date</div>
                 <div class="col-md-2">Written Books</div>
@@ -25,22 +25,22 @@
             </div>
             <div class="row col-md-12 list-row" th:each="author : ${authors}">
                 <div class="col-md-1" th:text="${author.getId()}"></div>
-                <div class="col-md-1" th:text="${author.getName()}"></div>
+                <div class="col-md-2" th:text="${author.getName()}"></div>
                 <div class="col-md-2" th:text="${author.getSurname()}"></div>
                 <div class="col-md-2" th:text="${author.getBirthDate()}"></div>
                 <div class="col-md-2" th:text="${author.getBooksWritten()}"></div>
-                <div class="row col-md-4">
-                                        <div class="col-md-4">
-                                            <a th:href="@{'/author/details/'+${author.getId()}}" class="col-md-12">
-                                                <button type="button" class="btn btn-info col-md-12">Details</button>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a th:href="@{'/author/edit/'+${author.getId()}}" class="col-md-12">
-                                                <button type="button" class="btn btn-primary col-md-12">Edit</button>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
+                <div class="row col-md-3">
+<!--                                        <div class="col-md-4">-->
+<!--                                            <a th:href="@{'/author/details/'+${author.getId()}}" class="col-md-12">-->
+<!--                                                <button type="button" class="btn btn-info col-md-12">Details</button>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <a th:href="@{'/author/edit/'+${author.getId()}}" class="col-md-12">-->
+<!--                                                <button type="button" class="btn btn-primary col-md-12">Edit</button>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+                                        <div class="col-md-12">
                                             <a th:href="@{'/author/books/'+${author.getId()}}" class="col-md-12">
                                                 <button type="button" class="btn btn-danger col-md-12">Books</button>
                                             </a>
