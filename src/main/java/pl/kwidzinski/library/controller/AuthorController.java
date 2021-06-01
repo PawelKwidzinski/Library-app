@@ -5,24 +5,27 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.kwidzinski.library.model.Author;
+import pl.kwidzinski.library.model.Book;
 import pl.kwidzinski.library.service.AuthorService;
+import pl.kwidzinski.library.service.BookService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/author/")
 public class AuthorController {
 
     private AuthorService authorService;
+    private BookService bookService;
 
     @Autowired
-    public AuthorController(final AuthorService authorService) {
+    public AuthorController(final AuthorService authorService, final BookService bookService) {
         this.authorService = authorService;
+        this.bookService = bookService;
     }
 
     @GetMapping("/list")
@@ -44,5 +47,33 @@ public class AuthorController {
     public String add(Author author) {
         authorService.saveAuthor(author);
         return "redirect:/author/list";
+    }
+
+    @GetMapping("/books/{id}")
+    public String addAuthorsToBooks(Model model, @PathVariable("id") Long authorId) {
+        Optional<Author> authorOptional = authorService.getAuthor(authorId);
+        if (authorOptional.isPresent()) {
+            Author author = authorOptional.get();
+            List<Book> books = bookService.getAllBooks();
+            model.addAttribute("author", author);
+            model.addAttribute("books", books);
+            return "author-bookform";
+        }
+        return "redirect:/author/list";
+    }
+
+    @PostMapping("/addBook")
+    public String addBookToAuthor(Long authorId, Long bookId, HttpServletRequest request) {
+        authorService.addBookToAuthor(authorId, bookId);
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @GetMapping("/book/remove/{bookId}/{authorId}")
+    public String removeBookFromAuthor(
+            @PathVariable("bookId") Long bookId,
+            @PathVariable("authorId") Long authorId,
+            HttpServletRequest request) {
+        authorService.removeFromAuthor(bookId, authorId);
+        return "redirect:" + request.getHeader("referer");
     }
 }
